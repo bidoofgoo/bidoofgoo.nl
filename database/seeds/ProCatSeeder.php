@@ -15,11 +15,11 @@ class ProCatSeeder extends Seeder
         $this->add(2, [4, 7]);
         $this->add(3, [5, 6, 10]);
         $this->add(4, [5, 6]);
-        $this->add(5, [9, 11]);
+        $this->add(5, [9, 11, 13]);
         $this->add(6, [1, 7]);
         $this->add(7, [4, 7]);
         $this->add(8, [1]);
-        $this->add(9, [9, 11]);
+        $this->add(9, [9, 11, 13]);
         $this->add(10, [9, 8, 10]);
         $this->add(11, [1, 2, 3, 11, 12]);
         $this->add(12, [9, 10, 11, 12]);

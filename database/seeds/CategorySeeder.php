@@ -23,6 +23,7 @@ class CategorySeeder extends Seeder
       $this->add('Misc', 'grey'); // 10
       $this->add('Dutch only', '#FF6A00'); // 11
       $this->add('School', '#0D1D5B'); // 12 #26B4B5
+      $this->add('Jobs', '#fe98a3'); // 13
    }
 
    public function add($name, $color){

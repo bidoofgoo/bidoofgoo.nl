@@ -34,5 +34,5 @@ function doyerthang(){
    target.innerHTML = newhtml;
 }
 
-htmlcontent.innerHTML = htmlcontent.innerHTML.replaceAll("&lt;br&gt;", "<br>");
+htmlcontent.innerHTML = htmlcontent.innerHTML.replaceAll("&gt;", "&gt;<br>");
 doyerthang();

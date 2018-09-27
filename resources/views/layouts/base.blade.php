@@ -24,8 +24,8 @@
       <h3 id="quote">Waiting for javascript...</h3>
       <nav>
          <a href="{{url('/')}}">Home</a>
-         <a href="{{url('/')}}#cards">Projects</a>
-         <a href="{{url('/')}}#info">Contact</a>
+         <a href="{{url('/projects')}}">Projects</a>
+         <a href="{{url('/contact')}}">Contact</a>
          @auth
          <a href="{{url('/admin')}}">Admin</a>
          @endauth

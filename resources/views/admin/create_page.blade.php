@@ -35,7 +35,7 @@
                @if(!$create)
                <tr>
                   <td>Previous slug: </td>
-                  <td><input type="text" name="prevslug" value="{{$slug}}" disabled></td>
+                  <td><input type="text" name="prevslug" value="{{$slug}}" readonly></td>
                </tr>
                @endif
                <tr>
@@ -48,7 +48,7 @@
                      <select class="" name="projectid">
                         <option value="-1">null</option>
                         @foreach($projects as $project)
-                           <option value="{{$project->id}}">{!!html_entity_decode($project->name)!!}</option>
+                           <option value="{{$project->id}}" @if($projid == $project->id) selected @endif>{!!html_entity_decode($project->name)!!}</option>
                         @endforeach
                      </select>
                   </td>

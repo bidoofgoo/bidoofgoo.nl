@@ -64,8 +64,4 @@ Bidoofgoo.nl
       @endforeach
    </div>
 </article>
-<article id="info">
-   <h2>Contact information</h2>
-   <p class="contactText">404 no contact 🍆</p>
-</article>
 @endsection

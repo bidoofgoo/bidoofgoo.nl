@@ -14,7 +14,8 @@ class CreateProjectpagesTable extends Migration
     public function up()
     {
       Schema::create('projectpages', function (Blueprint $table) {
-         $table->string('slug')->primary();
+         $table->increments('id');
+         $table->string('slug')->unique();
          $table->integer('project_id')->unsigned()->nullable();
          $table->string('title');
          $table->longText('content');

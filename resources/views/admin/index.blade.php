@@ -15,7 +15,8 @@ Bidoofgoo.nl
 <article>
    <h2>Projects</h2>
    <div class="artcontent">
-
+      <a href="{{url('/admin/pages')}}">All projects</a><br>
+      <a href="{{url('/admin/makepage')}}">Create a project</a>
    </div>
 </admin>
 <article>

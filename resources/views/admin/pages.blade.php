@@ -40,5 +40,13 @@ Bidoofgoo.nl
          @endforeach
       </table>
    </div>
+</article>
+<article>
+   <h2>All</h2>
+   <div class="artcontent">
+      <a href="{{url('/admin')}}">Admin page</a><br>
+      <a href="{{url('/admin/pages')}}">All pages</a><br>
+      <a href="{{url('/admin/makepage')}}">Create a page</a>
+   </div>
 </admin>
 @endsection

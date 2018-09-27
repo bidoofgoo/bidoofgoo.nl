@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use App\Projectpage;
+use App\Project;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -39,7 +40,7 @@ class AdminController extends Controller
       'slug' => $slug, 'title' => $title, 'projid' => $projid, 'create'=>true]);
    }
 
-   public function updatePagePage($prevslug){
+   public function updatePagePage($prevslug, Request $req){
       if(!Projectpage::where('slug', $prevslug)->exists()){
          echo "page not found";
          return;
@@ -65,10 +66,19 @@ class AdminController extends Controller
          $haserror = true;
          $errors[] = 'Please fill in a title';
       }
-      if(Projectpage::where('slug', $req->slug)->exists()){
-         $page = Projectpage::where('slug',$req->slug)->first();
+      if($req->prevslug == null){
+         if(Projectpage::where('slug', $req->slug)->exists()){
+            $errors[] = 'Bitch that page already exists';
+            $haserror = true;
+         }else{
+            $page = new Projectpage;
+         }
       }else{
-         $page = new Projectpage;
+         if(Projectpage::where('slug', $req->prevslug)->exists()){
+            $page = Projectpage::where('slug', $req->prevslug)->first();
+         }else{
+            $page = new Projectpage;
+         }
       }
       if($haserror){
          return redirect()->back()->withErrors($errors)->with('prev', [
@@ -103,5 +113,17 @@ class AdminController extends Controller
       }
 
       return redirect('/admin/pages');
+   }
+
+   public function createProject(Request $req){
+      $newProj = new Project;
+   }
+
+   public function updateProject(Request $req){
+
+   }
+
+   public function deleteProject($id){
+
    }
 }

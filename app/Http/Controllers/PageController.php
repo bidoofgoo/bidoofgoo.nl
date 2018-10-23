@@ -14,7 +14,12 @@ class PageController extends Controller
    public function makeProjectPage($slug){
       if(Projectpage::where('slug', $slug)->exists()){
          $page = Projectpage::where('slug', $slug)->first();
-         return view('page', ['page' => $page]);
+         if ($page->project != null) {
+            $recommended = ProjectsController::getRelevant($page->project->id);
+         }else{
+            $recommended = ProjectsController::getRelevant();
+         }
+         return view('page', ['page' => $page, 'recommended' => $recommended]);
       }else{
          echo "page not found";
       }

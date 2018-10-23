@@ -2,7 +2,6 @@
 <html>
 <head>
    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="{{asset('style/master.css')}}">
    <link rel="apple-touch-icon" href="{{asset('img/fav.png')}}">
    <link rel="icon" sizes="192x192" href="{{asset('img/fav.png')}}">
@@ -11,12 +10,20 @@
    <script src="{{asset('script/quotes.js')}}" charset="utf-8"></script>
    <title>@yield('title')</title>
    <script type="text/javascript">
-      function upClick(id){
-         var xhttp = new XMLHttpRequest();
-         xhttp.open("GET", "{{url('/upClicks')}}" + "/" + id, true);
-         xhttp.send();
-      }
+   function upClick(id){
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "{{url('/upClicks')}}" + "/" + id, true);
+      xhttp.send();
+   }
+   function openNewTab(url){
+      let tab = window.open(url, '_blank');
+      tab.focus();
+   }
+   function goto(url){
+      window.location.href = url;
+   }
    </script>
+   @yield('extraHead')
 </head>
 <body>
    <header>
@@ -27,7 +34,7 @@
          <a href="{{url('/projects')}}">Projects</a>
          <a href="{{url('/contact')}}">Contact</a>
          @auth
-         <a href="{{url('/admin')}}">Admin</a>
+            <a href="{{url('/admin')}}">Admin</a>
          @endauth
       </nav>
    </header>
@@ -35,7 +42,7 @@
       @yield('content')
    </main>
    <footer>
-      <p>&copy; Rick Heemskerk</p>
+      <p>&copy; Rick Heemskerk 2018</p>
    </footer>
 </body>
 </html>

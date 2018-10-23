@@ -187,25 +187,107 @@ main h2 + *{
   padding-top: 2rem;s
 }
 
-.contentimg{
-   display: flex;
-   justify-content: center;
-   padding-bottom: 1rem;
-   padding-top: 1rem;
+.contentvid{
+   background-color: rgba(0 ,0, 0, 0.075);
 }
 
-.contentimg *{
+.contentimg, .contentvid{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 1rem;
+   margin-top: 1rem;
+   overflow: hidden;
+}
+
+.contentimg *, .contentvid *{
    height: 300px;
+}
+
+.PageContents{
+   padding-bottom: 4rem;
+}
+
+.PageContents .cards{
+   display: block;
+}
+
+.PageContents .cardTitle{
+   padding: 0 1rem 0 1rem !important;
+   text-align: left !important;
+}
+
+.PageContents .card{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   width: 100%;
+   height: auto;
+}
+
+.SecondairyPageContent .card > img{
+   width: 75px;
+   height: 75px;
+}
+
+.PageContents .invisibox{
+   padding: 0.5rem 0rem;
+}
+
+.button{
+   cursor: pointer;
+   background-color: #0C1123;
+   padding: 1rem;
+   display: inline-block;
+   border-radius: 5px;
+   color: white;
+   transition: .3s;
+}
+
+.button:hover{
+   background-color: green;
+}
+
+.artcontent{
+   text-align: justify;
 }
 
 @media screen and (max-width: 1111px) {
   .cards{
     justify-content: space-around;
   }
+}
 
-  .boutright{
+@media screen and (min-width: 1000px){
+   .PageContents{
+      display: flex;
+      justify-content: space-between;
+   }
 
-  }
+   .MainPageContent{
+      /* border-right: 1px solid gray; */
+      width: 60%;
+   }
+
+   .MainPageContent > article > *{
+      margin-left: calc(15vw - 2rem);
+      padding-left: 2rem;
+      padding-right: 2rem;
+   }
+
+   .SecondairyPageContent{
+      width: 40%;
+   }
+
+   .SecondairyPageContent > *{
+      padding-left: 2rem;
+      padding-right: 2rem;
+      margin-right: calc(15vw - 2rem);
+   }
+
+   .SecondairyPageContent h3{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+   }
 }
 
 @media screen and (max-width: 777px){

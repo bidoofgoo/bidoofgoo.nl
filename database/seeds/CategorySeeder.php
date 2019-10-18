@@ -26,10 +26,11 @@ class CategorySeeder extends Seeder
       $this->add('Jobs', '#fe98a3'); // 13
    }
 
-   public function add($name, $color){
+   public function add($name, $color, $desc = ""){
       DB::table('projectcategories')->insert([
          'name' => $name,
-         'color' => $color
+         'color' => $color,
+         'description' => $desc
       ]);
    }
 }

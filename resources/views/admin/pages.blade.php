@@ -5,14 +5,6 @@
 @endsection
 
 @section('content')
-   <div id="fb-root"></div>
-   <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v3.1';
-      fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));</script>
    <article>
       <style media="screen">
       th, td{
@@ -28,6 +20,7 @@
                <th>Title</th>
                <th>Slug</th>
                <th>Project</th>
+               <th>Show AltUrl</th>
                <th>View page</th>
                <th>Edit page</th>
                <th>Delete page</th>
@@ -38,8 +31,14 @@
                   <td>{{$page->slug}}</td>
                   @if($page->project != null)
                      <td>{{$page->project->name}}</td>
+                     @if($page->showalturl)
+                        <td>Showing, <a href="{{url('/admin/pages/showAlt/' . $page->id )}}">disable</a></td>
+                     @else
+                        <td>Disabled, <a href="{{url('/admin/pages/showAlt/' . $page->id )}}">show</a></td>
+                     @endif
                   @else
                      <td>None</td>
+                     <td>NaN</td>
                   @endif
                   <td><a href="{{url('/project/'.$page->slug)}}">View</a></td>
                   <td><a href="{{url('/admin/makepage/'.$page->slug)}}">Edit</a></td>

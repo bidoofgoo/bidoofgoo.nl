@@ -13,20 +13,67 @@ header{
   color: white;
   position: relative;
   z-index: 10;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #0C1123;
+  background-clip: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+}
+
+i,b{
+  color:green;
+}
+
+.banner{
+  height: calc(100vh - 175px);
+}
+
+.banner_back{
+  background-image: url('../img/edgygreenskeleboy.png');
+  background-size: cover;
+  background-position: right;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100vw;
+  z-index: -1;
+}
+
+.banner_text{
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.banner_text *{
+  text-align: center;
 }
 
 footer{
-  padding: 1.5rem;
+  padding: 2rem 4rem;
   color: white;
   background-color: #0C1123;
   height: calc(4rem - 3rem);
   text-align: right;
+  position: relative;
+  z-index: 1;
 }
 
 main{
   min-height: calc(100vh - 7.7rem - 115px);
   background-color: #EEE;
+  padding-top:1rem;
+  position: relative;
+  z-index: 1;
 }
 
 header h1{
@@ -106,9 +153,8 @@ ul{
 .card{
   cursor: pointer;
   width: 300px;
-  height: 461.6px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: box-shadow 0.3s;
+  transition: 0.3s;
   background-size: cover;
   border-radius: 5px;
   background-color: white;
@@ -141,10 +187,12 @@ ul{
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.02,1.02);
 }
 
 .card:hover p{
-  color: #0C1123;
+  /* color: #0C1123; */
+  color: green;
 }
 
 .tag{
@@ -159,7 +207,7 @@ nav{
   flex-direction: row;
   justify-content: center;
   width: 80%;
-  margin: auto;
+  padding-left: 10%; padding-right: 10%;
 }
 
 nav a{
@@ -167,6 +215,10 @@ nav a{
   padding: 1rem;
   text-decoration: none;
   color: #BBB;
+}
+
+nav a:hover{
+   color: white;
 }
 
 main h2{
@@ -224,7 +276,7 @@ main h2 + *{
    height: auto;
 }
 
-.SecondairyPageContent .card > img{
+.PageContents .card > img{
    width: 75px;
    height: 75px;
 }
@@ -249,6 +301,38 @@ main h2 + *{
 
 .artcontent{
    text-align: justify;
+}
+
+.bottom{
+   display: flex;
+   justify-content: space-between;
+}
+
+.bottom-left{
+   display: flex;
+   justify-content: flex-start;
+}
+
+.bottom-right{
+   display: flex;
+   justify-content: flex-end;
+}
+
+a{
+   color: #4C4c4c;
+   transition: color .3s;
+}
+
+a:hover{
+   color: green;
+}
+
+.sorting{
+   padding-bottom: .5rem;
+}
+
+.sorting > a:hover{
+   color: inherit;
 }
 
 @media screen and (max-width: 1111px) {

@@ -89,5 +89,6 @@
       </div>
    </div>
    <script src="{{asset('script/editor.js')}}" charset="utf-8"></script>
+   <script src="{{asset('script/dontleave.js')}}" charset="utf-8"></script>
 </body>
 </html>

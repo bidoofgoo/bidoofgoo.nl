@@ -16,6 +16,7 @@ class CreateProjectcategoriesTable extends Migration
         Schema::create('projectcategories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->mediumText('description');
             $table->string('color');
             $table->timestamps();
         });

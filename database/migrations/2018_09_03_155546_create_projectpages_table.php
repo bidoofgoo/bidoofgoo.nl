@@ -19,6 +19,7 @@ class CreateProjectpagesTable extends Migration
          $table->integer('project_id')->unsigned()->nullable();
          $table->string('title');
          $table->longText('content');
+         $table->boolean('showalturl')->default(True);
          $table->timestamps();
 
          $table->foreign('project_id')->references('id')->on('projects');

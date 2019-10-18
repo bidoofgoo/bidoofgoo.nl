@@ -23,21 +23,43 @@
       window.location.href = url;
    }
    </script>
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41956560-1"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'UA-41956560-1');
+   </script>
+
    @yield('extraHead')
 </head>
 <body>
    <header>
       <h1 onclick="window.location.href = '{{url('/')}}';">Bidoofgoo.nl</h1>
       <h3 id="quote">Waiting for javascript...</h3>
-      <nav>
-         <a href="{{url('/')}}">Home</a>
-         <a href="{{url('/projects')}}">Projects</a>
-         <a href="{{url('/contact')}}">Contact</a>
-         @auth
-            <a href="{{url('/admin')}}">Admin</a>
-         @endauth
-      </nav>
    </header>
+   <nav>
+      <a href="{{url('/')}}">Home</a>
+      <a href="{{url('/projects')}}">Projects</a>
+      <a href="{{url('/contact')}}">Contact</a>
+      @auth
+         <a href="{{url('/admin')}}">Admin</a>
+      @endauth
+   </nav>
+   @if(isset($main))
+     <div class="banner">
+       <div class="banner_back">
+
+       </div>
+       <div class="banner_text">
+         <h1>Bidoofgoo</h1>
+         <h3>Where technology meets creativity</h3>
+       </div>
+     </div>
+   @endif
    <main>
       @yield('content')
    </main>

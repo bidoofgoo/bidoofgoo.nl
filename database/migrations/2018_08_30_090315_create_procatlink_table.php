@@ -14,13 +14,13 @@ class CreateProCatLinkTable extends Migration
     public function up()
     {
         Schema::create('procatlink', function (Blueprint $table) {
-            $table->increments('id');
+           $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('project_id')->references('id')->on('projects');
-            $table->foreign('category_id')->references('id')->on('projectcategories');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('projectcategories')->onDelete('cascade');
         });
     }
 

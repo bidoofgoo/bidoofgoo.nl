@@ -21,7 +21,7 @@
                My name is <b>Rick Heemskerk</b>, I'm <b>21</b> years old and I'm located at a little country called <b>Holland</b>.
                <br><br>
                Currently I'm studying to get my bachelor of computer science at the city of Leiden.
-               They give me all kinds of projects to work on, but the joke is on them because I actually like doing it!
+               They give me all kinds of projects to work on, which usually end up here too, because they are pretty fun.
                I spend most of my time working on all kinds of projects, mainly my own.
                These projects are usually:
                <ul>
@@ -36,9 +36,9 @@
       </div>
    </article>
    <article id="cards">
-      <h2>Most Viewed Projects</h2>
+      <h2>Most Recent Projects</h2>
       <div class="cards">
-         @foreach($projectsviews as $project)
+         @foreach($projectsdate as $project)
             <div class="invisibox">
                @if($project->page != null)
                   <div class="card" onclick="
@@ -54,13 +54,17 @@
                   <img src="{{asset('img/projects/' . $project->image)}}">
                   <p class="cardTitle">{!!html_entity_decode($project->name)!!}</p>
                   <div class="tags">
-                     @foreach($project->links as $tag)
+                     {{-- @foreach($project->links as $tag)
                         <span class="tag" style="background-color: {{$tag->category->color}}">{{$tag->category->name}}</span>
-                     @endforeach
+                     @endforeach --}}
                   </div>
                </div>
             </div>
          @endforeach
+
+      </div>
+      <div class="artcontent bottom-right" style="padding-bottom: 2rem; padding-top: 0rem;">
+         <a href="{{url('/projects')}}">More...</a>
       </div>
    </article>
    {{-- <article class="contactmenowples">

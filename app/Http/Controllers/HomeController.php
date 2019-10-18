@@ -14,12 +14,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index', ['projectsviews'=> ProjectsController::getByViews(12),
-        'projectsdate' => ProjectsController::getByDate(4)]);
+        return view('index', ['projectsviews'=> ProjectsController::getByViews(4),
+        'projectsdate' => ProjectsController::getRecent(4), 'main' => True]);
     }
 
-    public function projects(){
-      return view('projects', ['projects' => ProjectsController::getAllByDate(),
-                              'tags' => ProjectsController::getTags()]);
+    public function projects($filter = null){
+      $category = null;
+      if ($filter != null) {
+         $category = CategoryController::getTag($filter);
+         $projects = ProjectsController::getAllWithTag($category);
+      }else{
+         $projects = ProjectsController::getAllByDate();
+      }
+      return view('projects', ['projects' => $projects,
+                              'tags' => CategoryController::getTags(), 'category' => $category]);
    }
 }

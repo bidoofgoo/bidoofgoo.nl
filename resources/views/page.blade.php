@@ -42,32 +42,31 @@
             Hello! I've put a lot of time and effort into this site and I would appreciate it alot if you were to share this page! It helps me spread my work amongst the masses and I'll be forever gratefull! 🙇‍💖<br><br>
             <div class="fb-share-button"
             data-href="{{url()->full()}}"
-            data-layout="button_count">
+            data-layout="button_count"></div>
+         </div>
+         <h2 class="SecondairyHead">Similar projects</h2>
+         <div class="artcontent">
+            @foreach($recommended as $project)
+               <div class="invisibox">
+                  @if($project->page != null)
+                     <div class="card" onclick="
+                     window.location.href = '{{url('project/'.$project->page->slug)}}';">
+                  @else
+                     <div class="card" onclick="
+                     if('{{$project->url}}'.indexOf('/') != 0){
+                        upClick({{$project->id}});
+                        openNewTab('{{$project->url}}');
+                     }else{
+                        window.location.href = '{{url($project->url)}}';}">
+                  @endif
+                        <img src="{{asset('img/projects/' . $project->image)}}">
+                        <p class="cardTitle">{!!html_entity_decode($project->name)!!}</p>
+                     </div>
+               </div>
+            @endforeach
          </div>
       </div>
-      <h2 class="SecondairyHead">Similar projects</h2>
-      <div class="artcontent">
-         @foreach($recommended as $project)
-            <div class="invisibox">
-               @if($project->page != null)
-                  <div class="card" onclick="
-                  window.location.href = '{{url('project/'.$project->page->slug)}}';">
-               @else
-                  <div class="card" onclick="
-                  if('{{$project->url}}'.indexOf('/') != 0){
-                     upClick({{$project->id}});
-                     openNewTab('{{$project->url}}');
-                  }else{
-                     window.location.href = '{{url($project->url)}}';}">
-                  @endif
-                  <img src="{{asset('img/projects/' . $project->image)}}">
-                  <p class="cardTitle">{!!html_entity_decode($project->name)!!}</p>
-               </div>
-            </div>
-         @endforeach
-      </div>
    </div>
-</div>
 @if($page->project_id != null)
    <script type="text/javascript">
    upClick({{$page->project_id}});

@@ -29,4 +29,8 @@ class HomeController extends Controller
       return view('projects', ['projects' => $projects,
                               'tags' => CategoryController::getTags(), 'category' => $category]);
    }
+
+   public function contact(){
+     return view('contact');
+   }
 }

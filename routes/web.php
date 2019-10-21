@@ -21,6 +21,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/projects', 'HomeController@projects')->name('projects');
 Route::get('/projects/{filter}', 'HomeController@projects');
 Route::get('/project/{slug}', 'PageController@makeProjectPage');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('contact/sendMail', 'EmailController@send')->name('sendmail');
 Route::get('/deleteThisHacker', function(){
    return view('deleteThisHacker');
 });

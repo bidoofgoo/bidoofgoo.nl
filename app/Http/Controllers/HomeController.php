@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DateTime;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('index', ['projectsviews'=> ProjectsController::getByViews(4),
-        'projectsdate' => ProjectsController::getRecent(4), 'main' => True]);
+          'projectsdate' => ProjectsController::getRecent(4), 'main' => true, 'age' => HomeController::getAge("04/05/1997")]);
     }
 
     public function projects($filter = null){
@@ -32,5 +32,18 @@ class HomeController extends Controller
 
    public function contact(){
      return view('contact');
+   }
+
+   public function getAge($date)
+   {
+       $dob = new DateTime($date);
+
+       $now = new DateTime();
+
+       $difference = $now->diff($dob);
+
+       $age = $difference->y;
+
+       return  $age;
    }
 }

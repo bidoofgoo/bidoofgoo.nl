@@ -18,6 +18,7 @@
          <div class="">
             <img src="{{asset('img/dancing-skeleton.gif')}}" style="margin-left:auto;margin-right:auto;display:block;">
             <p style="font-family:serif;color:red;font-size:2rem;display:block;">YOU HAVE BEEN DELETED KIDDO</p>
+            <a href="{{ route('home') }}">Return to site</a>
          </div>
       </div>
    </body>

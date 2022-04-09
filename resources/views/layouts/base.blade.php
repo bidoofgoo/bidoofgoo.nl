@@ -1,3 +1,6 @@
+@php
+  $now = new DateTime();
+@endphp
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,22 +52,11 @@
          <a href="{{url('/admin')}}">Admin</a>
       @endauth
    </nav>
-   @if(isset($main))
-     <div class="banner">
-       <div class="banner_back">
-
-       </div>
-       <div class="banner_text">
-         <h1>Bidoofgoo</h1>
-         <h3>Where technology meets creativity</h3>
-       </div>
-     </div>
-   @endif
    <main>
       @yield('content')
    </main>
    <footer>
-      <p>&copy; Rick Heemskerk 2018</p>
+      <p>&copy; Rick Heemskerk 2018-{{ $now->format('Y') }}</p>
    </footer>
 </body>
 </html>
